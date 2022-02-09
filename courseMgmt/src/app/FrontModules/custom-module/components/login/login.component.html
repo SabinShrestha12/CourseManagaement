@@ -1,0 +1,23 @@
+<form #basicForm = 'ngForm' (ngSubmit)="getValue(basicForm.value)">
+	<mat-card>
+      <mat-card-title class="title"><mat-toolbar class ="toolbar"color="primary">{{title}}</mat-toolbar></mat-card-title>
+
+    <!-- email -->
+    <mat-form-field class="manage" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" ngModel name ="email">
+    </mat-form-field><br>
+
+    <!-- password -->
+    <mat-form-field class="manage" appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-card-actions class="manage">
+      <button  mat-raised-button color="primary">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

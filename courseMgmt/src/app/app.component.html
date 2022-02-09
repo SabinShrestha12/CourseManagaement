@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ <!-- <app-login></app-login> -->
+ <div class="section">
+  <mat-sidenav-container fullscreen>
+    <mat-sidenav mode="side" #sidenav opened position="start">
+      <ul>
+        <li><a routerLink="add">Add Courses</a></li>
+        <li><a routerLink="view">View Courses</a></li>
+        <li><a routerLink="update">Update Courses</a></li>
+        <li><a routerLink="delete">Delete Courses</a></li>
+      </ul>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        My Application
+        <span class="toolbar-spacer"></span>
+        My Account
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+ </div>
+</body>
+</html>
