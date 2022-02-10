@@ -1,0 +1,50 @@
+{
+  "postData": [
+    {
+      "title": "dededede",
+      "description": "dededed",
+      "price": 124,
+      "id": 1
+    },
+    {
+      "title": "java",
+      "description": "java course",
+      "price": 1500,
+      "id": 2
+    },
+    {
+      "title": "python",
+      "description": "python curse",
+      "price": 1500,
+      "id": 3
+    },
+    {
+      "title": "abc",
+      "description": "def",
+      "price": 100,
+      "id": 4
+    },
+    {
+      "title": "test",
+      "description": "testing",
+      "price": 2500,
+      "id": 5
+    },
+    {
+      "title": "c#",
+      "description": "c sharpp",
+      "price": 1000,
+      "id": 6
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

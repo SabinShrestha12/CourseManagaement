@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { CustomModuleRoutingModule } from './custom-module-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule} from '@angular/forms';
@@ -11,19 +10,24 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { AddCourseComponent } from './components/add-course/add-course.component';
 import { ViewCourseComponent } from './components/view-course/view-course.component';
 import { UpdateCourseComponent } from './components/update-course/update-course.component';
 import { DeleteCourseComponent } from './components/delete-course/delete-course.component';
-
+import { MatTableModule } from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogueboxComponent } from './components/dialoguebox/dialoguebox.component';
+import { AddCourseComponent } from './components/add-course/add-course.component';
+//api module
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    AddCourseComponent,
     ViewCourseComponent,
     UpdateCourseComponent,
-    DeleteCourseComponent
+    DeleteCourseComponent,
+    DialogueboxComponent,
+    AddCourseComponent,
   ],
   imports: [
     CommonModule,
@@ -36,13 +40,16 @@ import { DeleteCourseComponent } from './components/delete-course/delete-course.
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
+    MatTableModule,
+    MatDialogModule,
+    HttpClientModule,
   ],
   exports : [
     LoginComponent,
-    AddCourseComponent,
     ViewCourseComponent,
     UpdateCourseComponent,
     DeleteCourseComponent,
+    AddCourseComponent,
   ]
 })
 export class CustomModuleModule { }

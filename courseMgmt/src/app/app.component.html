@@ -12,17 +12,17 @@
   <mat-sidenav-container fullscreen>
     <mat-sidenav mode="side" #sidenav opened position="start">
       <ul>
-        <li><a routerLink="add">Add Courses</a></li>
-        <li><a routerLink="view">View Courses</a></li>
-        <li><a routerLink="update">Update Courses</a></li>
-        <li><a routerLink="delete">Delete Courses</a></li>
+        <li><a routerLink="add">{{"Add Courses"| titlecase}}</a></li>
+        <li><a routerLink="view">{{"View Courses" | titlecase}}</a></li>
+        <li><a routerLink="update">{{"Update Courses" | titlecase}}</a></li>
+        <li><a routerLink="delete">{{"Delete Courses" | titlecase}}</a></li>
       </ul>
     </mat-sidenav>
     <mat-sidenav-content>
       <mat-toolbar color="primary">
-        My Application
+        {{title | titlecase}}
         <span class="toolbar-spacer"></span>
-        My Account
+        {{accountName | titlecase}}
       </mat-toolbar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
