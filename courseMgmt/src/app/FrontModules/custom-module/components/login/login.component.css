@@ -1,6 +1,12 @@
+mat-card
+{
+  width: 45%;
+  margin-left: 25%;
+}
 form  .manage
 {
-  margin-left: 400px;
+  margin-left: 150px;
+  width: 300px;
 }
 form  .manage1
 {

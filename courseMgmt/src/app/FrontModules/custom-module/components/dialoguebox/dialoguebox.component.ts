@@ -28,9 +28,11 @@ export class DialogueboxComponent implements OnInit {
   {
     if(this.productForm.valid)
     {
-      this.api.postProduct(this.productForm.value).subscribe({
+      this.api.postProduct(this.productForm.value).subscribe(
+        {
         next:(response)=>{
           alert('data inserted successfully');
+          console.log(response);
           this.productForm.reset();
         },
         error:()=>

@@ -35,6 +35,18 @@
       "description": "c sharpp",
       "price": 1000,
       "id": 6
+    },
+    {
+      "title": "after check",
+      "description": "after check",
+      "price": 1234,
+      "id": 7
+    },
+    {
+      "title": "response data",
+      "description": "responsive",
+      "price": 123456,
+      "id": 8
     }
   ],
   "comments": [
@@ -45,6 +57,7 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "email": "sabin@gmail.com",
+    "password":1234
   }
 }

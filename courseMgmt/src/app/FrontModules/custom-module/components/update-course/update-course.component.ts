@@ -9,8 +9,6 @@ export class UpdateCourseComponent implements OnInit{
 
   constructor() { }
 
-  update = "update Course";
-
 
   courses: check[] = [
 
@@ -21,11 +19,21 @@ export class UpdateCourseComponent implements OnInit{
   ];
 
 
-  displayedColumns: string[] = ['id', 'title', 'desc','price'];
+  displayedColumns: string[] = ['id', 'title', 'desc','price','action'];
   dataSource = this.courses;
 
 
   ngOnInit(): void {
+  }
+
+  //update portion
+  update()
+  {
+    alert("update success");
+  }
+  delete()
+  {
+    alert("delete success");
   }
 
 }

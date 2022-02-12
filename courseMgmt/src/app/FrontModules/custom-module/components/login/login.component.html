@@ -1,5 +1,5 @@
-<form #basicForm = 'ngForm' (ngSubmit)="getValue(basicForm.value)">
 	<mat-card>
+    <form #basicForm = 'ngForm' (ngSubmit)="getValue(basicForm)">
       <mat-card-title class="title"><mat-toolbar class ="toolbar"color="primary">{{title}}</mat-toolbar></mat-card-title>
 
     <!-- email -->
@@ -11,13 +11,13 @@
     <!-- password -->
     <mat-form-field class="manage" appearance="fill">
       <mat-label>Enter your password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
+      <input ngModel name="password" matInput [type]="hide ? 'password' : 'text'">
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-    </mat-form-field>
+     </mat-form-field>
     <mat-card-actions class="manage">
-      <button  mat-raised-button color="primary">Save</button>
+      <button  mat-raised-button color="primary">Submit</button>
     </mat-card-actions>
+  </form>
   </mat-card>
-</form>

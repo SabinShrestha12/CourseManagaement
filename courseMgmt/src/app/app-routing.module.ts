@@ -5,15 +5,17 @@ import {ViewCourseComponent} from './FrontModules/custom-module/components/view-
 import { UpdateCourseComponent } from './FrontModules/custom-module/components/update-course/update-course.component';
 import { DeleteCourseComponent } from './FrontModules/custom-module/components/delete-course/delete-course.component';
 import { AddCourseComponent } from './FrontModules/custom-module/components/add-course/add-course.component';
+import { DashboardComponent } from './FrontModules/custom-module/components/dashboard/dashboard.component';
 const routes: Routes = [
 
-  {path : '', component:LoginComponent},
+  {path : '', component:LoginComponent,pathMatch : 'full'},
   //using lazy loading concept
-  {path : 'add',  component:AddCourseComponent},
-  {path : 'view', component : ViewCourseComponent},
-  {path : 'update', component : UpdateCourseComponent},
-  {path : 'delete', component : DeleteCourseComponent}
-
+  {path : 'dashboard', component : DashboardComponent,children :[
+    {path : 'add',  component:AddCourseComponent},
+    {path : 'view', component : ViewCourseComponent},
+    {path : 'update', component : UpdateCourseComponent},
+    {path : 'delete', component : DeleteCourseComponent},
+  ]},
 ];
 
 @NgModule({

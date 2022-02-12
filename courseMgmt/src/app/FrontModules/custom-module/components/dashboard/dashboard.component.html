@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
- <router-outlet></router-outlet>
- <!-- <div class="section">
+<div class="section">
   <mat-sidenav-container fullscreen>
     <mat-sidenav mode="side" #sidenav opened position="start">
       <ul>
@@ -22,11 +12,9 @@
       <mat-toolbar color="primary">
         {{title | titlecase}}
         <span class="toolbar-spacer"></span>
-        {{accountName | titlecase}}
+        <button mat-raised-button color="accent" (click)="logout()">Logout</button>
       </mat-toolbar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
- </div> -->
-</body>
-</html>
+ </div>

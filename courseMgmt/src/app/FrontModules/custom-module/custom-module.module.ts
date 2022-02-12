@@ -19,6 +19,8 @@ import { DialogueboxComponent } from './components/dialoguebox/dialoguebox.compo
 import { AddCourseComponent } from './components/add-course/add-course.component';
 //api module
 import { HttpClientModule } from '@angular/common/http';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     DeleteCourseComponent,
     DialogueboxComponent,
     AddCourseComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatDialogModule,
     HttpClientModule,
+    MatSidenavModule,
   ],
   exports : [
     LoginComponent,

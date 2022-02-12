@@ -1,5 +1,7 @@
+import { ApiService } from 'src/app/services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,7 @@ import { FormBuilder, NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private formbuilder:FormBuilder) { }
+  constructor(private formbuilder:FormBuilder, private api :ApiService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +26,20 @@ export class LoginComponent implements OnInit {
   )
   getValue(data:NgForm)
   {
-    console.log(data);
+    // console.log(data.value.email);
+    const email = data.value.email;
+    const password = data.value.password;
+    this.api.getDetails().subscribe((data)=>
+    {
+     if(data.email==email && password==data.password)
+     {
+
+       this.router.navigate(['dashboard']);
+    }
+     else{
+       alert("Invalid Credentials");
+     }
+    })
+
   }
 }
