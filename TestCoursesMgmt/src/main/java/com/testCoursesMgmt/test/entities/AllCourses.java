@@ -1,17 +1,22 @@
 package com.testCoursesMgmt.test.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "all_courses")
 public class AllCourses {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false, nullable = false)
     private int course_id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "price")
     private int price;
 
 
