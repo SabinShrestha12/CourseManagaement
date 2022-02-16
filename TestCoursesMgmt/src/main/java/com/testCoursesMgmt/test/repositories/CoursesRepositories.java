@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CoursesRepositories extends CrudRepository<AllCourses, Integer> {
+
+    public AllCourses findById(int id);
 }

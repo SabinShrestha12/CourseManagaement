@@ -23,20 +23,22 @@ public class HomeController {
     //fetching all courses
     @GetMapping(value = "/courses")
     public ResponseEntity<List<AllCourses>> allCourseslist() {
-         List<AllCourses> list = this.courseServices.getCourses();
-        if(list.size()<=0)
+        List<AllCourses> list = this.courseServices.getCourses();
+        if(list.size()>0)
         {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            return ResponseEntity.of(Optional.of(list));
+
         }
-        return ResponseEntity.of(Optional.of(list));
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+
     }
 
 
     //fetching particular course
     @GetMapping(value = "/courses/{id}")
-    public ResponseEntity<AllCourses> course(@PathVariable String id)
+    public ResponseEntity<AllCourses> course(@PathVariable int id)
     {
-        AllCourses course = this.courseServices.getParticularCourse(Long.parseLong(id));
+        AllCourses course = this.courseServices.getParticularCourse(id);
         if(course!=null)
         {
             return ResponseEntity.of(Optional.of(course));
@@ -52,7 +54,7 @@ public class HomeController {
         AllCourses data = null;
         try{
             data = this.courseServices.addCourse(course);
-            return ResponseEntity.of(Optional.of(course));
+            return ResponseEntity.status(HttpStatus.CREATED).body(data);
         }
         catch (Exception e)
         {
@@ -64,7 +66,7 @@ public class HomeController {
 
     //update course
     @PutMapping(value = "update/{courseId}")
-    public ResponseEntity<AllCourses> update(@RequestBody AllCourses course , @PathVariable("courseId") long courseId)
+    public ResponseEntity<AllCourses> update(@RequestBody AllCourses course , @PathVariable("courseId") int courseId)
     {
 
         try
@@ -80,7 +82,7 @@ public class HomeController {
     }
 
 
-    //delete courses
+    //delete course
     @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") int id)
     {

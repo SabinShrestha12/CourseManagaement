@@ -2,44 +2,31 @@ package com.testCoursesMgmt.test.services;
 
 import com.testCoursesMgmt.test.entities.AllCourses;
 import com.testCoursesMgmt.test.repositories.CoursesRepositories;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
 import java.util.List;
-
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class CoursesServiceImpl implements CourseService {
-    CoursesRepositories courseRepo;
-    List<AllCourses> list;
-    public CoursesServiceImpl()
-    {
-        this.list = new ArrayList<>();
-        this.list.add(new AllCourses(14,"java course","this is all about java",1200));
-        this.list.add(new AllCourses(12,"pyhthon course","this is all about python",1200));this.list = new ArrayList<>();
-    }
+    @Autowired
+    private CoursesRepositories courseRepo;
+    public CoursesServiceImpl() {}
     //All course handler
     @Override
     public List<AllCourses> getCourses() {
-        return this.list;
+        List<AllCourses> list = (List<AllCourses>) this.courseRepo.findAll();
+        return list;
     }
 
 
     //single course handler
     @Override
-    public AllCourses getParticularCourse(long id){
+    public AllCourses getParticularCourse(int id){
+
         AllCourses data = null;
         try {
-            for (AllCourses course : list) {
-                if (course.getCourse_id() == id) {
-                    data = course;
-                    break;
-                }
+            data = this.courseRepo.findById(id);
 
-            }
         }catch(Exception e)
         {
             System.out.println(e.getMessage());
@@ -51,23 +38,23 @@ public class CoursesServiceImpl implements CourseService {
     @Override
     public AllCourses addCourse(AllCourses course)
     {
-        this.list.add(course);
-        return course;
+        AllCourses result = courseRepo.save(course);
+        return result;
     }
 
     //updation course handler
     @Override
-    public void update(AllCourses course , long id)
+    public void update(AllCourses course , int id)
     {
-      this.list = this.list.stream().map(c->{
-           if(c.getCourse_id()==id)
-           {
-               c.setTitle(course.getTitle());
-               c.setDescription(course.getDescription());
-               c.setPrice(course.getPrice());
-           }
-            return c;
-       }).collect(Collectors.toList());
+         AllCourses data = this.courseRepo.findById(id);
+         data.setTitle(course.getTitle());
+         data.setPrice(course.getPrice());
+         data.setDescription(course.getDescription());
+         this.courseRepo.save(data);
+
+         //another way you can update the data
+         /*course.setCourse_id(id);
+        this.courseRepo.save(course);*/
 
     }
 
@@ -75,15 +62,6 @@ public class CoursesServiceImpl implements CourseService {
     @Override
     public void delete(int id)
     {
-        this.list.stream().filter(course->{
-            if(course.getCourse_id()!=id)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }) .collect(Collectors.toList());
+        courseRepo.deleteById(id);
     }
 }

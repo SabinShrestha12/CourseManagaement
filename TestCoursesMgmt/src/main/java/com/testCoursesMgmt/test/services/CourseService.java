@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface CourseService {
     public List<AllCourses> getCourses();
-    public AllCourses getParticularCourse(long id);
+    public AllCourses getParticularCourse(int id);
     public AllCourses addCourse(AllCourses course);
-    public void update(AllCourses course,long id);
+    public void update(AllCourses course,int id);
     public void delete(int id);
 }
