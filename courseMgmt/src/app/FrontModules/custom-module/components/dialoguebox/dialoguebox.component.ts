@@ -29,9 +29,7 @@ export class DialogueboxComponent implements OnInit {
       price: ['', Validators.required],
     });
 
-
     //fetching data
-
 
     if (this.editData) {
       this.action = 'update';

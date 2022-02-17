@@ -29,7 +29,6 @@ export class ApiService {
   //update course
   updateCourse(data:any, id:number)
   {
-    // return this.http.put<any>("http://localhost:8080/api/update/"+id,data);
     return this.http.put<any>("http://localhost:8080/api/update/"+id,data);
   }
 
