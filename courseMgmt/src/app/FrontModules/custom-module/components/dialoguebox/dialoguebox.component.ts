@@ -61,7 +61,6 @@ export class DialogueboxComponent implements OnInit {
             });
           },
           error: () => {
-            alert('404 error');
             this.toast.error({
               detail : 'Data Inserted',
               summary : 'Data inserted successfully',
@@ -78,10 +77,9 @@ export class DialogueboxComponent implements OnInit {
 
   updateCourse()
   {
-    this.api.updateCourse(this.productForm.value,this.editData.id).subscribe({
+    this.api.updateCourse(this.productForm.value,this.editData.course_id).subscribe({
       next : (response)=>
       {
-        alert("data updated successfully");
         this.toast.success({
           detail : 'Data updated',
           summary : 'Data updated successfully',
@@ -92,7 +90,6 @@ export class DialogueboxComponent implements OnInit {
       },
       error : ()=>
       {
-          alert("Deletd operation failed");
           this.toast.error({
             detail : 'Data updation failed',
             summary : 'Data failed to update',

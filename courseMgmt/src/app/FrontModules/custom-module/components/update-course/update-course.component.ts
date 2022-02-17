@@ -15,7 +15,7 @@ import {NgToastService} from 'ng-angular-popup';
 })
 export class UpdateCourseComponent implements OnInit{
 
-  displayedColumns: string[] = ['id', 'title', 'description','price','action'];
+  displayedColumns: string[] = ['course_id', 'title', 'description','price','action'];
   dataSource !: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -56,7 +56,8 @@ displayData()
   update(row:any)
   {
     this.dialog.open(DialogueboxComponent,{
-    data : row
+    data : row,
+    id: row.course_id
     }).afterClosed().subscribe(val=>{
       if(val === 'update')
       {
@@ -74,7 +75,6 @@ displayData()
    this.api.deleteCourse(id).subscribe({
      next: (res)=>
      {
-      //  alert("data deleted success");
        this.toast.success({
         detail : "Deleted successfully",
         summary : "Data Deleted successfully",

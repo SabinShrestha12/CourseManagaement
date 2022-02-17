@@ -1,18 +1,6 @@
 {
   "postData": [
     {
-      "title": "test",
-      "description": "testing",
-      "price": 2500,
-      "id": 5
-    },
-    {
-      "title": "angular revised",
-      "description": "revision of angular",
-      "price": 789,
-      "id": 7
-    },
-    {
       "title": "added",
       "description": "deded",
       "price": 1234,
@@ -23,6 +11,12 @@
       "description": "deded",
       "price": 4545,
       "id": 9
+    },
+    {
+      "title": "added title",
+      "description": "dededed",
+      "price": 1234,
+      "id": 10
     }
   ],
   "comments": [

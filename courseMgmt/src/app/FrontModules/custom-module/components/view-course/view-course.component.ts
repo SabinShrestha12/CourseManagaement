@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ViewCourseComponent implements OnInit{
 
-  displayedColumns: string[] = ['id', 'title', 'description','price'];
+  displayedColumns: string[] = ['course_id', 'title', 'description','price'];
   dataSource !: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -20,6 +20,7 @@ export class ViewCourseComponent implements OnInit{
 
   ngOnInit(): void {
     this.displayData();
+    this.getParticularCourse(2);
   }
 
 
@@ -47,6 +48,18 @@ applyFilter(event: Event) {
   if (this.dataSource.paginator) {
     this.dataSource.paginator.firstPage();
   }
+}
+
+//fetching particular course
+getParticularCourse(id:any)
+{
+  this.api.getParticularCourse(id).subscribe({
+    next : (response) =>
+    {
+      console.log(response);
+    },
+    error : ()=> console.log("couldn't find the data")
+  })
 }
 
 }

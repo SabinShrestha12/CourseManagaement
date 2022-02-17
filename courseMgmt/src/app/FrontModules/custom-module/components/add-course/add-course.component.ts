@@ -15,7 +15,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class AddCourseComponent implements OnInit{
 
   add = "Add Course";
-  displayedColumns: string[] = ['id', 'title', 'description','price'];
+  displayedColumns: string[] = ['course_id', 'title', 'description','price'];
   dataSource !: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

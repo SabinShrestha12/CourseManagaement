@@ -27,25 +27,29 @@ export class LoginComponent implements OnInit {
     password: [''],
   });
   getValue(data: NgForm) {
-    // console.log(data.value.email);
-    const email = data.value.email;
-    const password = data.value.password;
-    this.api.getDetails().subscribe((data) => {
-      if (data.email == email && password == data.password) {
-        this.router.navigate(['dashboard/add']);
-         this.toast.success({
-          detail: 'Success Message',
-          summary: 'Logged in Successfully',
-          duration: 5000,
-        });
 
-      } else {
-        this.toast.error({
-          detail: 'Login Failed',
-          summary: 'Invalid credetials',
-          duration: 5000,
-        });
-      }
-    });
-  }
+    let email = data.value.email;
+    let password = data.value.password;
+
+    const email1 = "sabin@gmail.com";
+    const pass = 1234;
+    if(email===email1 && password==pass)
+    {
+      this.toast.success({
+        detail : "Login Success",
+        summary : "Logged in Successfully",
+        duration : 5000
+      });
+      this.router.navigate(['/dashboard/add']);
+
+    }
+    else{
+      this.toast.error({
+        detail : "Invalid Credentials",
+        summary : "Invalid Credentials",
+        duration : 5000
+      })
+    }
+ }
+
 }
