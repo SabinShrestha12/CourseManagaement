@@ -18,29 +18,29 @@ public class TestCoursesMgmtApplication {
 		CoursesRepositories repo = context.getBean(CoursesRepositories.class);
 
 
-		//inserting first data
+//		inserting first data
 //		AllCourses courses = new AllCourses();
 //		courses.setTitle("java");
 //		courses.setPrice(1200);
 //		courses.setDescription("Testing java course");
 //		System.out.println(repo.save(courses));
 
-		//inserting second data
-//
+//		inserting second data
+
 //		AllCourses course1 = new AllCourses();
 //		course1.setTitle("python");
 //		course1.setPrice(1500);
 //		course1.setDescription("Testing python course");
 //		System.out.println(repo.save(courses));
-//
-//		//inserting third data
+
+		//inserting third data
 //		AllCourses course2 = new AllCourses();
 //		course2.setTitle("angular");
 //		course2.setPrice(1800);
 //		course2.setDescription("Testing Angular course");
 //		System.out.println(repo.save(course2));
-//
-//		//inserting fourth data
+
+		//inserting fourth data
 //		AllCourses courses3 = new AllCourses();
 //		courses3.setTitle("react");
 //		courses3.setPrice(1800);
