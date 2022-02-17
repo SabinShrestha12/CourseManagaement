@@ -4,27 +4,27 @@
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Course Title</mat-label>
-        <input formControlName = "title" type="text" matInput placeholder="course title">
+        <input formControlName = "title" type="text" matInput placeholder="Course Title">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Course Description</mat-label>
-        <input formControlName = "description" type="text" matInput placeholder="course desc">
+        <input formControlName = "description" type="text" matInput placeholder="Course Descrption">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Price</mat-label>
-        <input formControlName = "price" type="number" matInput placeholder="course desc">
+        <input formControlName = "price" type="number" matInput placeholder="Course Price">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
     </p>
   </form>
 </div>
 <div mat-dialog-actions [align]="'start'">
-  <button mat-raised-button color="primary" style="margin-left: 10px;" (click)="saveData()">Submit</button>
+  <button mat-raised-button color="primary" style="margin-left: 10px;" (click)="saveData()">{{action}}</button>
   <button mat-raised-button mat-dialog-close color="warn" style="margin-left: 93px;">Close</button>
 </div>

@@ -1,52 +1,28 @@
 {
   "postData": [
     {
-      "title": "dededede",
-      "description": "dededed",
-      "price": 124,
-      "id": 1
-    },
-    {
-      "title": "java",
-      "description": "java course",
-      "price": 1500,
-      "id": 2
-    },
-    {
-      "title": "python",
-      "description": "python curse",
-      "price": 1500,
-      "id": 3
-    },
-    {
-      "title": "abc",
-      "description": "def",
-      "price": 100,
-      "id": 4
-    },
-    {
       "title": "test",
       "description": "testing",
       "price": 2500,
       "id": 5
     },
     {
-      "title": "c#",
-      "description": "c sharpp",
-      "price": 1000,
-      "id": 6
-    },
-    {
-      "title": "after check",
-      "description": "after check",
-      "price": 1234,
+      "title": "angular revised",
+      "description": "revision of angular",
+      "price": 789,
       "id": 7
     },
     {
-      "title": "response data",
-      "description": "responsive",
-      "price": 123456,
+      "title": "added",
+      "description": "deded",
+      "price": 1234,
       "id": 8
+    },
+    {
+      "title": "toat added",
+      "description": "deded",
+      "price": 4545,
+      "id": 9
     }
   ],
   "comments": [
@@ -58,6 +34,6 @@
   ],
   "profile": {
     "email": "sabin@gmail.com",
-    "password":1234
+    "password": 1234
   }
 }

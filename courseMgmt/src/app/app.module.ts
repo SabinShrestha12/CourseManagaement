@@ -10,6 +10,9 @@ import {MatSidenavModule}from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 
+//toast module
+import {NgToastModule} from 'ng-angular-popup';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
+    NgToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

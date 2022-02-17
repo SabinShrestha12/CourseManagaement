@@ -12,25 +12,28 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ViewCourseComponent } from './components/view-course/view-course.component';
 import { UpdateCourseComponent } from './components/update-course/update-course.component';
-import { DeleteCourseComponent } from './components/delete-course/delete-course.component';
 import { MatTableModule } from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { DialogueboxComponent } from './components/dialoguebox/dialoguebox.component';
 import { AddCourseComponent } from './components/add-course/add-course.component';
 //api module
 import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {DashboardComponent } from './components/dashboard/dashboard.component';
+
+//toast module
+import {NgToastModule} from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
     LoginComponent,
     ViewCourseComponent,
     UpdateCourseComponent,
-    DeleteCourseComponent,
     DialogueboxComponent,
     AddCourseComponent,
     DashboardComponent,
+
   ],
   imports: [
     CommonModule,
@@ -47,12 +50,13 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MatDialogModule,
     HttpClientModule,
     MatSidenavModule,
+    MatPaginatorModule,
+    NgToastModule,
   ],
   exports : [
     LoginComponent,
     ViewCourseComponent,
     UpdateCourseComponent,
-    DeleteCourseComponent,
     AddCourseComponent,
   ]
 })

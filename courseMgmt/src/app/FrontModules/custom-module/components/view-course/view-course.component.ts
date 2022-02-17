@@ -1,4 +1,8 @@
 import { Component,OnInit} from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import {ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-view-course',
@@ -6,24 +10,18 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./view-course.component.css']
 })
 export class ViewCourseComponent implements OnInit{
-  courses: check[] = [
 
-    {id : 1, title : "Java", desc : "this is java course", price : 500},
-    {id : 2, title : "Python", desc : "this is python course", price : 1000},
-    {id : 3, title : "Angular", desc : "this is Angular course", price : 1500},
-    {id : 4, title : "React", desc : "this is React course", price : 2000}
-  ];
-
-
+  displayedColumns: string[] = ['id', 'title', 'description','price'];
+  dataSource !: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   constructor(private api:ApiService) { }
+
 
   ngOnInit(): void {
     this.displayData();
   }
 
-
-  displayedColumns: string[] = ['id', 'title', 'desc','price'];
-  dataSource = this.courses;
 
   //fetching data using api
 displayData()
@@ -31,7 +29,9 @@ displayData()
   this.api.getProduct().subscribe({
     next:(response)=>
     {
-      console.log(response);
+      this.dataSource = new MatTableDataSource(response);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     },
     error:()=>{
       console.log("Status 404 not found");
@@ -39,12 +39,15 @@ displayData()
   })
 }
 
+//filtering process
+applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value;
+  this.dataSource.filter = filterValue.trim().toLowerCase();
 
+  if (this.dataSource.paginator) {
+    this.dataSource.paginator.firstPage();
+  }
 }
-export interface check {
-  id: number;
-  title: string;
-  desc: any;
-  price : number;
+
 }
 

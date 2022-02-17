@@ -1,7 +1,19 @@
-table
-{
+table {
   width: 100%;
 }
+
+.mat-form-field {
+  font-size: 14px;
+  width: 60%;
+  margin-left: 200px;
+}
+
+td, th {
+  width: 25%;
+}
+
 button{
   margin-left: 40%;
+  position: absolute;
+  top:14px;
 }

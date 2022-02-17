@@ -1,6 +1,12 @@
+import { Router } from '@angular/router';
 import { Component,OnInit} from '@angular/core';
 import { DialogueboxComponent } from '../dialoguebox/dialoguebox.component';
 import {MatDialog} from '@angular/material/dialog';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import {ViewChild} from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-add-course',
   templateUrl: './add-course.component.html',
@@ -8,37 +14,55 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class AddCourseComponent implements OnInit{
 
-  constructor(public dialog: MatDialog) {}
   add = "Add Course";
+  displayedColumns: string[] = ['id', 'title', 'description','price'];
+  dataSource !: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  constructor(public dialog: MatDialog,private api:ApiService, private route:Router) {}
 
-
-  courses: check[] = [
-
-    {id : 1, title : "Java", desc : "this is java course", price : 500},
-    {id : 2, title : "Python", desc : "this is python course", price : 100},
-    {id : 3, title : "Angular", desc : "this is Angular course", price : 1500},
-    {id : 4, title : "React", desc : "this is React course", price : 2000}
-  ];
-
-
-  displayedColumns: string[] = ['id', 'title', 'desc', 'price'];
-  dataSource = this.courses;
   ngOnInit(): void {
+    this.displayData();
   }
+
+  //fetching data
+displayData()
+{
+  this.api.getProduct().subscribe({
+    next:(response)=>
+    {
+      this.dataSource = new MatTableDataSource(response);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    },
+    error:()=>{
+      console.log("Status 404 not found");
+    }
+  })
+}
+
+   //filtering process
+  applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value;
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  if (this.dataSource.paginator) {
+    this.dataSource.paginator.firstPage();
+  }
+}
 
 
   //dialogue box component
   openDialogue()
   {
-    this.dialog.open(DialogueboxComponent)
+    this.dialog.open(DialogueboxComponent).afterClosed().subscribe(val=>{
+      if(val === 'save')
+      {
+        this.displayData();
+      }
+    })
   }
 
-}
-export interface check {
-  id: number;
-  title: string;
-  desc: any;
-  price : number;
 }
 
 

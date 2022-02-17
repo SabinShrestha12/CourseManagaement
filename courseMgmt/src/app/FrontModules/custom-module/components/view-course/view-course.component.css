@@ -1,3 +1,16 @@
-table{
+/* table{
   width: 60%;
+} */
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 60%;
+  margin-left: 200px;
+}
+
+td, th {
+  width: 25%;
 }

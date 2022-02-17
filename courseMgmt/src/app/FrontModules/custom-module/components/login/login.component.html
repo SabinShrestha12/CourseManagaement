@@ -1,6 +1,8 @@
 	<mat-card>
     <form #basicForm = 'ngForm' (ngSubmit)="getValue(basicForm)">
-      <mat-card-title class="title"><mat-toolbar class ="toolbar"color="primary">{{title}}</mat-toolbar></mat-card-title>
+      <mat-card-title class="title">
+        <mat-toolbar class ="toolbar"color="primary">{{title}}</mat-toolbar>
+      </mat-card-title>
 
     <!-- email -->
     <mat-form-field class="manage" appearance="fill">
@@ -17,7 +19,8 @@
       </button>
      </mat-form-field>
     <mat-card-actions class="manage">
-      <button  mat-raised-button color="primary">Submit</button>
+      <button  mat-raised-button color="primary">Login</button>
     </mat-card-actions>
   </form>
   </mat-card>
+
